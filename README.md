@@ -42,7 +42,7 @@ I wanted to showcase how far vanilla JavaScript, HTML, and CSS can go when thoug
 
 
 
-![App screenshot 1](assets/127.0.0.1_5500_DAY%202_index.html (1).png)Highlights
+![App screenshot 1](assets/127.0.0.1_5500_DAY%202_index.html(1).png)Highlights
 
 ![App screenshot 2](assets/127.0.0.1_5500_DAY%202_index.html%20(1).png)- Premium, mobile-first UI (header, hero, form, submissions table)
 

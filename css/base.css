@@ -1,0 +1,126 @@
+:root {
+  /* Premium neutral palette */
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #0b1624;
+  --muted: #6b7c8b;
+  --accent: #7c4dff; /* vivid violet (Bold Tech) */
+  --accent-2: #00d4ff; /* electric cyan */
+  --accent-3: #ff6b6b; /* hot pink accent */
+  --accent-gradient: linear-gradient(90deg, var(--accent), var(--accent-2) 60%);
+  --accent-contrast: #ffffff;
+  --radius-sm: 10px;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --container: 100%;
+  --max-width: 1100px;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Segoe UI";
+  --fs-base: 16px;
+  --line-height: 1.6;
+
+  /* UI utilities */
+  --border: rgba(11, 24, 34, 0.04);
+  --border-strong: rgba(11, 24, 34, 0.06);
+  --shadow-xs: rgba(11, 22, 34, 0.06);
+  --focus-outline: rgba(11, 108, 240, 0.16);
+  --accent-shadow: rgba(124, 77, 255, 0.12);
+  --row-hover: rgba(11, 24, 34, 0.02);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 72px;
+}
+
+:focus {
+  outline-offset: 3px;
+}
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid rgba(11, 108, 240, 0.16);
+  outline-offset: 2px;
+}
+
+.container {
+  width: min(var(--max-width), calc(100% - 48px));
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 8px 0;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.small-note {
+  font-size: 92rem;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(11, 22, 34, 0.06);
+  margin-top: 20px;
+}
+
+@media (min-height: 720px) {
+  :root {
+    --container: 1100px;
+    --max-width: 1100px;
+  }
+  .container {
+    padding: 24px;
+  }
+}

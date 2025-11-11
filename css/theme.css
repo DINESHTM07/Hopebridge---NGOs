@@ -1,0 +1,46 @@
+/* Smooth transitions for color-aware properties */
+:root {
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #07101a;
+    --card: #0d1720;
+    --text: #e6eef6;
+    --muted: #9fb3c8;
+    --accent: #9a78ff; /* tuned violet for dark */
+    --accent-2: #4ff3ff; /* bright cyan */
+    --accent-3: #ff8a8a; /* warm pink */
+    --accent-gradient: linear-gradient(90deg,var(--accent), var(--accent-2) 60%);
+    --accent-contrast: #07101a;
+  }
+}
+
+.theme-dark {
+  /* Graphite variant: near-monochrome surfaces with subtle accent pops */
+  --bg: #0b0c0e; /* deep graphite background */
+  --card: #101214; /* slightly lighter card surface */
+  --text: #e6eef6;
+  --muted: #9aa3ab; /* soft muted text */
+  /* Graphite accents: mostly grayscale with a reserved pop color */
+  --accent: #9aa0a6; /* muted steel */
+  --accent-2: #5aa9ff; /* sparing pop (links/mini accents) */
+  --accent-3: #6f7377; /* darker neutral accent */
+  --accent-gradient: linear-gradient(90deg,var(--accent), var(--accent-3) 60%);
+  /* very low-opacity CTA gradient for dark surfaces */
+  --accent-gradient-dark: linear-gradient(90deg, rgba(154,160,166,0.12), rgba(111,115,119,0.06));
+  --accent-shadow: rgba(34,40,48,0.45);
+  --row-hover: rgba(255,255,255,0.02);
+  --accent-contrast: #0b0c0e;
+  --elevation-shadow: 0 10px 22px rgba(2,6,10,0.6);
+  /* dark-mode utility colors */
+  --muted-border-dark: rgba(255,255,255,0.02);
+  --muted-border-dark-strong: rgba(255,255,255,0.03);
+  --card-gradient-dark: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --btn-sheen-dark: rgba(255,255,255,0.04);
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{ transition: none!important; animation: none!important; }
+}

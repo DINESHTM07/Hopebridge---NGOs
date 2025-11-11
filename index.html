@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HopeBridge - Feedback Portal for NGOs. Mobile-first, accessible, themeable design system."
+    />
+
+    <title>HopeBridge - Feedback Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <!-- Header: redesigned for premium corporate look. Edited by automated patch - changes inline below -->
+    <header class="site-header">
+      <div class="container nav-row">
+        <div class="brand-wrap">
+          <h1 class="brand">HopeBridge</h1>
+          <p class="tagline">Enterprise Feedback & Community Relations</p>
+        </div>
+
+        <div class="nav-actions">
+          <!-- Theme toggle (keeps same id for JS) with creative symbol -->
+          <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+            <span class="visually-hidden">Toggle theme</span>
+            <!-- Creative bridge + sun symbol -->
+            <svg width="22" height="22" viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0%" x2="100%">
+                  <stop offset="0%" stop-color="var(--accent)" />
+                  <stop offset="100%" stop-color="var(--accent-2)" />
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="7" r="3" fill="url(#g1)" />
+              <path d="M3 17c3-3 6-4 9-4s6 1 9 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.9" />
+            </svg>
+          </button>
+
+          <!-- Sign in (visual only) -->
+          <a href="#" class="btn-outline login-btn">Sign in</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero container">
+        <h2 class="hero-title">Share Feedback. Help NGOs improve.</h2>
+        <p class="hero-sub">A quick, Mobile-first portal to submit structured feedback or requests to local organizations.</p>
+    </section>
+
+    <section id="feedback" class="container card">
+        <h3>Send Feedback / Request</h3>
+        <form id="feedbackForm" class="feedback-form" aria-describedby="formHelp" novalidate>
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" inputmode="text" autocomplete="name" required>
+            
+            <label for="contact" >Contact (email or phone) </label>
+            <input type="text" id="contact" name="contact" inputmode="email" autocomplete="email" required>
+
+            <label for="ngo">Organization (optional) </label>
+            <input type="text" id="ngo" name="ngo" placeholder="NGO name or community group">
+
+            <label for="category">Category</label>
+            <select name="category" id="category" required>
+                <option value="">Choose...</option>
+                <option value="service">Service</option>
+                <option value="resource">Request resource</option>
+                <option value="volunteer">Volunteer inquiry</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="4" required></textarea>
+
+            <div class="form-actions">
+                <button class="btn" type="submit">Send</button>
+                <button type="button" id="clearSubmissions" class="btn-secondary">Clear all</button>
+            </div>
+
+            <p id="formStatus" role="status" aria-live="polite" class="form-status"></p>
+        </form>
+    </section>
+
+    <section class="container card" aria-labelledby="submissionsTitle">
+        <h3 id="submissionsTitle">Submissions</h3>
+        <div class="table-scroll">
+            <table id="submissionsTable" class="submissions-table">
+                <thead>
+                    <tr>
+                        <th>When</th>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Category</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="container small note-muted">
+        <p>Prototype for volunteers & NGOs - built mobile - first with a design system.</p>
+    </section>
+
+  <footer class="site-footer container">
+        <!-- Footer upgraded: added professional license and social links (Dinesh Dev) -->
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <strong>Dinesh Dev</strong>
+            <div class="muted small">Front-End Engineer — HopeBridge UI</div>
+            <div class="license">Licensed &copy; Dinesh Dev — MIT</div>
+          </div>
+          <div class="footer-links">
+            <a href="#">Privacy</a> · <a href="#">Terms</a>
+          </div>
+          <div class="footer-social" aria-label="social links">
+            <a href="https://www.linkedin.com/in/dineshcreativedev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <!-- LinkedIn -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM7 8h4.7v2.2h.1c.7-1.3 2.4-2.6 4.9-2.6C22.6 7.6 24 9.9 24 14.2V24H19V15.2c0-2.1-.1-4.8-2.9-4.8-2.9 0-3.3 2.2-3.3 4.6V24H7V8z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/dinrae.us/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <!-- Instagram -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zm0 7.5A3 3 0 1115 12a3 3 0 01-3 3zm4.8-8.9a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z"/></svg>
+            </a>
+            <a href="https://github.com/DINESHTM07" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <!-- GitHub -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A12 12 0 000 12.7c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.2.8-.6v-2.1c-3.3.7-4-1.5-4-1.5-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.6-.8 1.6-.8.9-1.6 2.4-1.1 3-.8.1-.8.4-1.1.7-1.4-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.1-3.1-.1-.3-.5-1.6.1-3.3 0 0 .9-.3 3.1 1.2a10.6 10.6 0 015.6 0c2.2-1.5 3.1-1.2 3.1-1.2.6 1.7.2 3 .1 3.3.7.8 1.1 1.8 1.1 3.1 0 4.5-2.7 5.5-5.3 5.8.4.3.8.8.8 1.7v2.5c0 .4.2.7.8.6A12 12 0 0024 12.7 12 12 0 0012 .5z"/></svg>
+            </a>
+          </div>
+        </div>
+        <p class="legal">&copy; <span id="year"></span> HopeBridge - Demo</p>
+  </footer>
+  </body>
+</html>

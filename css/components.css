@@ -1,0 +1,423 @@
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.theme-toggle,
+.nav-toggle {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  padding: 8px;
+  border-radius: 10px;
+  display: inline-grid;
+  border-top: 1px solid var(--border);
+  width: 44px;
+  height: 44px;
+}
+
+/* Theme toggle micro-interaction */
+.theme-toggle svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  transition: transform 260ms cubic-bezier(0.2, 0.9, 0.2, 1), filter 260ms ease,
+    opacity 200ms ease;
+  transform-origin: center;
+}
+.theme-toggle circle,
+.theme-toggle path {
+  border-bottom: 1px solid var(--border);
+}
+
+/* Toggle visual state when aria-pressed is true */
+.theme-toggle[aria-pressed="true"] svg {
+  transform: rotate(18deg) scale(1.06);
+  filter: drop-shadow(0 10px 22px var(--accent-shadow));
+}
+.theme-toggle[aria-pressed="true"] circle {
+  opacity: 0.95;
+}
+
+/* Focus-visible enhancement */
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--accent-shadow);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle svg,
+  .theme-toggle circle,
+  .theme-toggle path {
+    transition: none !important;
+  }
+}
+
+/* removed visual hamburger; keep style available if needed */
+.nav-toggle {
+  display: none;
+}
+
+.hero {
+  padding-top: 20px;
+}
+
+/* Animated hero gradient: subtle, low-opacity decorative layer */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 0;
+  border-radius: calc(var(--radius-sm) + 2px);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-2),
+    var(--accent-3)
+  );
+  background-size: 300% 100%;
+  opacity: 0.06;
+  filter: blur(18px) saturate(85%);
+  transform: translateZ(0);
+  z-index: 0;
+  animation: gradientShift 10s linear infinite;
+  pointer-events: none;
+}
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+    opacity: 0.06;
+  }
+}
+
+/* Dark-mode tweak: keep the effect subtle on dark backgrounds */
+.theme-dark .hero::before {
+  /* much lower opacity and reduced saturation on dark mode */
+  opacity: 0.03;
+  filter: blur(14px) saturate(70%);
+}
+
+/* Use a low-intensity gradient for CTAs on dark surfaces */
+.theme-dark .btn {
+  position: relative;
+  overflow: hidden;
+  /* subtler gradient for neat dark-mode CTAs */
+  background: rgb(238, 235, 235);
+  color: var(--accent-contrast);
+  border: 1px solid var(--muted-border-dark);
+  padding: 10px 16px;
+  box-shadow: 0 8px 18px var(--elevation-shadow);
+  text-shadow: none;
+  transition: transform 120ms ease, box-shadow 160ms ease, opacity 120ms ease;
+}
+.theme-dark .btn::after {
+  /* very soft diagonal sheen */
+  content: "";
+  position: absolute;
+  left: -10%;
+  top: -30%;
+  width: 40%;
+  height: 160%;
+  background: linear-gradient(
+    180deg,
+    var(--btn-sheen-dark),
+    var(--muted-border-dark)
+  );
+  transform: rotate(18deg) translateX(-6%);
+  filter: blur(6px);
+  opacity: 0.04;
+  pointer-events: none;
+  transition: transform 320ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 180ms ease;
+}
+.theme-dark .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--elevation-shadow);
+}
+.theme-dark .btn:hover::after {
+  transform: rotate(18deg) translateX(2%);
+  opacity: 0.07;
+}
+.theme-dark .btn:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-dark .btn,
+  .theme-dark .btn::after {
+    transition: none !important;
+  }
+  .theme-dark .btn::after {
+    opacity: 0.03;
+  }
+}
+
+/* Cards and header: subtle separation, avoid bright borders */
+.theme-dark .card {
+  background: var(--card-gradient-dark);
+  box-shadow: var(--elevation-shadow);
+  border: 1px solid var(--muted-border-dark);
+}
+
+/* Header should sit subtly on top in dark mode */
+.theme-dark .site-header {
+  background: var(--card-gradient-dark);
+  border-bottom: 1px solid var(--muted-border-dark-strong);
+}
+
+/* Table header in dark mode: low contrast */
+.theme-dark .submissions-table thead th {
+  background: var(--muted-border-dark);
+  color: var(--text);
+}
+
+/* Footer: remove light tint and use subtle muted tone */
+.theme-dark .site-footer {
+  background: transparent;
+  border-top: 1px solid var(--muted-border-dark);
+}
+
+.hero-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 0.98rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.feedback-form {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.feedback-form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.feedback-form input,
+.feedback-form textarea,
+.feedback-form select {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  font-size: 1rem;
+  background: var(--card);
+  color: inherit;
+  transition: box-shadow 180ms ease, transform 120ms ease;
+}
+
+.feedback-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 12px 16px;
+  border: 0;
+  cursor: pointer;
+  background: var(--accent-gradient);
+  color: var(--accent-contrast);
+  box-shadow: 0 10px 26px var(--accent-shadow);
+  transition: transform 120ms ease, box-shadow 180ms ease, opacity 120ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.98;
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:focus-visible {
+  outline: 3px solid var(--accent-shadow);
+  outline-offset: 3px;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  padding: 10px 14px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Delete button created dynamically by JS */
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent-3);
+  background: transparent;
+  color: var(--accent-3);
+  cursor: pointer;
+}
+.delete-btn:hover {
+  background: var(--row-hover);
+}
+.theme-dark .delete-btn {
+  border-color: var(--accent-3);
+  color:  var(--accent-3);
+  background: transparent;
+}
+.theme-dark .delete-btn:hover {
+  background: var(--row-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.table-scroll {
+  overflow: auto;
+  border-radius: 8px;
+}
+
+/* Footer styles and social icons */
+.site-footer {
+  margin-top: 28px;
+  padding: 18px 24px;
+  background: linear-gradient(180deg, var(--muted-border-dark), transparent);
+  border-top: 1px solid var(--border);
+}
+.footer-grid {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.footer-brand .muted {
+  color: var(--muted);
+}
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.footer-social a svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: currentColor;
+  transition: transform 160ms ease, color 160ms ease;
+}
+.footer-social a:hover svg {
+  transform: translateY(-3px);
+}
+.footer-social a:hover {
+  color: var(--accent);
+}
+
+.legal {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.submissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.96rem;
+  background: transparent;
+}
+
+.submissions-table th,
+.submissions-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.submissions-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  z-index: 10;
+  font-weight: 700;
+}
+
+.submissions-table tbody tr:hover {
+  background: var(--row-hover);
+}
+
+@media (min-width: 720px) {
+  .feedback-form {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .feedback-form textarea {
+    grid-column: 1 / -1;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+}
+.site-footer {
+  background: none;
+}

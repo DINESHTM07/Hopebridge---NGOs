@@ -41,10 +41,13 @@ I wanted to showcase how far vanilla JavaScript, HTML, and CSS can go when thoug
 ## ScreenshotsThis is the DAY 2 UI refinement of the HopeBridge demo. The focus of this iteration was a premium, accessible visual overhaul while preserving the original application logic in `js/app.js`.
 
 
+## In Dark Mode:
 
-![App screenshot 1](https://github.com/DINESHTM07/Hopebridge---NGOs/blob/2aa9ee900e11cdc67b3fe9cdc90d59418568472f/assets/127.0.0.1_5500_DAY%25202_index.html%20(1).png) In Dark-Mode
+![App screenshot 1](https://github.com/DINESHTM07/Hopebridge---NGOs/blob/2aa9ee900e11cdc67b3fe9cdc90d59418568472f/assets/127.0.0.1_5500_DAY%25202_index.html%20(1).png)
 
-![App screenshot 2](assets/127.0.0.1_5500_DAY%202_index.html%20(1).png)- Premium, mobile-first UI (header, hero, form, submissions table)
+## In light Mode:
+
+![App screenshot 2](https://github.com/DINESHTM07/Hopebridge---NGOs/blob/0c4d23bc8bd18eb8efce4540d72e59196b3cd8f8/assets/127.0.0.1_5500_DAY%25202_index.html.png)
 
 - Theme toggle with dark (Graphite) and light variants
 
